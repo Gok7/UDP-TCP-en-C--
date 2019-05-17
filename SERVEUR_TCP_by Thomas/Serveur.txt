@@ -1,0 +1,213 @@
+/* 
+ * File:   1-CLIENT_UDP_UNICAST.cpp
+ * Author: Administrateur
+ *
+ * Created on 14 mars 2013, 14:34
+ */
+
+#include <winsock2.h>
+#include <cstdlib>
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+#include <winsock.h>
+
+using namespace std;
+
+/*
+ * 
+ */
+//#define DEBUG_SOCKET
+//------------------------------------------------------------------------------
+
+void Init_DLL() {
+    WSADATA L_Info_DLL;
+    if (WSAStartup(MAKEWORD(2, 0), &L_Info_DLL) != 0) exit;
+
+
+#ifdef DEBUG_SOCKET 
+    cout << L_Info_DLL.szDescription << endl;
+#endif 
+}
+//------------------------------------------------------------------------------
+
+void Fin_DLL() {
+    int L_OK = WSACleanup();
+
+#ifdef DEBUG_SOCKET
+    if (L_OK == 0) cout << "WSACleanup   :  Ok" << endl;
+    else cout << "WSACleanup :  ERREUR" << endl;
+#endif
+
+}
+//------------------------------------------------------------------------------
+void Affiche_Erreur()
+{
+    DWORD L_Code_Erreur = GetLastError();
+    
+    char L_Message[512];
+    
+    FormatMessage ( FORMAT_MESSAGE_FROM_SYSTEM, NULL, L_Code_Erreur,
+                    0,L_Message,511,NULL);
+    cerr << " -Erreur ["<<L_Code_Erreur<<"]   :  "<<L_Message<<endl;
+    
+}
+
+//------------------------------------------------------------------------------
+//VARIABLE GLOBALE
+
+SOCKET H_Socket;
+SOCKET Socket_Client;
+sockaddr_in Process_Locale; 
+sockaddr_in Process_Locale2; 
+
+//------------------------------------------------------------------------------
+
+void Creation_Socket() {
+    H_Socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    if (H_Socket == INVALID_SOCKET) {
+        Affiche_Erreur();
+    }
+#ifdef DEBUG_SOCKET
+    cout << "Valeur du socket:   " << H_Socket << endl;
+#endif
+}
+//------------------------------------------------------------------------------
+
+void Creation_Info_Adressage() {
+    Process_Locale.sin_family = AF_INET;
+    Process_Locale.sin_port = htons(9999);
+    Process_Locale.sin_addr.S_un.S_addr = INADDR_ANY;
+    
+    Process_Locale2.sin_family = AF_INET;
+    Process_Locale2.sin_port = htons(1024);
+    Process_Locale2.sin_addr.S_un.S_addr = INADDR_ANY;
+    
+}
+//------------------------------------------------------------------------------
+
+void Attacher_Process()
+{
+    int L_OK = bind(H_Socket, (sockaddr*) &Process_Locale, sizeof(Process_Locale));
+
+    if (L_OK == SOCKET_ERROR) {
+        Affiche_Erreur();
+    }
+    #ifdef DEBUG_SOCKET
+    cout<<"Bind:    "<< L_OK <<endl;
+    #endif
+    
+}
+
+
+//------------------------------------------------------------------------------
+
+void Deconnexion_socket_ecoute() {
+
+    int L_OK = shutdown(H_Socket, SD_BOTH);
+
+    closesocket(H_Socket);
+
+}
+
+//------------------------------------------------------------------------------
+
+void Deconnexion_socket_client() {
+
+    int L_OK = shutdown(Socket_Client, SD_BOTH);
+
+    closesocket(Socket_Client);
+
+}
+//------------------------------------------------------------------------------
+void Creation_liste_attente()
+{
+    int L_ok;
+    L_ok = listen(H_Socket,5);
+    if (L_ok== SOCKET_ERROR){
+        Affiche_Erreur();
+    }
+}
+
+//------------------------------------------------------------------------------
+
+void Accepter_Connection(){
+    
+    sockaddr_in L_info_distant;
+    
+    int L_Taille = sizeof(L_info_distant);
+    
+    Socket_Client = accept( H_Socket, (sockaddr *)&L_info_distant, &L_Taille);
+    cout<<"Connection de : "<<inet_ntoa(L_info_distant.sin_addr)<<endl<<endl;
+
+}
+
+//------------------------------------------------------------------------------
+
+void Reception()
+{
+    char L_Data[512];
+    sockaddr_in L_Info_Distant;
+    int L_Taille_Info = sizeof(L_Info_Distant);
+    int L_Taille= recvfrom(Socket_Client,(char*)L_Data,sizeof(L_Data)-1,0,
+          (sockaddr*)&L_Info_Distant, &L_Taille_Info); 
+  
+    #ifdef DEBUG_SOCKET
+    cout<<"recvfrom - Taille:    "<< L_Taille <<endl;
+    cout<<"Adresse client : "<<inet_ntoa(L_Info_Distant.sin_addr)<<endl;
+    #endif
+
+    if (L_Taille == SOCKET_ERROR) Affiche_Erreur();
+    else {
+        L_Data[L_Taille] = 0 ;
+        cout<<L_Data<<endl<<endl;
+    }
+    
+}
+
+//---------------------------w---------------------------------------------------
+
+void Emission(const void* P_Data, int P_Taille) {
+    int L_Taille = send(Socket_Client, (char*) P_Data, P_Taille, 0);
+
+    if (L_Taille == SOCKET_ERROR) Affiche_Erreur();
+
+#ifdef DEBUG_SOCKET
+    cout << "sendto - Taille  : " << L_Taille << endl;
+#endif
+
+}
+
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+int main(int argc, char** argv) {
+
+    Init_DLL();
+    Creation_Socket();
+    Creation_Info_Adressage();
+    Attacher_Process();
+    
+    Creation_liste_attente();
+ while(1){   
+    Accepter_Connection();
+      
+    Reception();
+    
+    
+    
+    char* Reponse = "Au revoir !";
+    Emission(Reponse,strlen(Reponse));
+    
+    
+    Deconnexion_socket_client();
+}
+    Deconnexion_socket_ecoute();
+    
+    Fin_DLL();
+    
+    return 0;
+}
+

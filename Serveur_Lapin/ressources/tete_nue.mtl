@@ -1,0 +1,50 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 13.04.2010 11:16:21
+
+newmtl Couleur_Tete
+	Ns 10.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.80 0.60 0.69
+	Ks 0.43 0.43 0.43
+	Ke 0.00 0.00 0.00
+
+newmtl Couleur_Yeux
+	Ns 10.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.85 0.85 0.85
+	Ks 0.19 0.20 0.20
+	Ke 0.00 0.00 0.00
+
+newmtl Couleur_Dent
+	Ns 10.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.92 0.92 0.80
+	Ks 0.34 0.34 0.34
+	Ke 0.00 0.00 0.00
+
+newmtl Couleur_Pourtour_Yeux
+	Ns 20.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.77 0.63 0.48
+	Ks 0.00 0.00 0.00
+	Ke 0.00 0.00 0.00

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(v=vs.85).aspx" />
+        <title>accept function (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms737526(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="EE4293CD-7:35:39 AM" />
+
+<meta name="Search.ShortId" content="ms737526" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,0:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,1:header,1:SearchBox,1:ImageSprite,0:Breadcrumbs,2:Toc,2:NavigationResize,3:FeedbackCounter,3:Feedback,1:footer,1:Metro;/Areas/Epx/Content/Css:0,/Areas/Epx/Themes/Metro/Content:1,/Areas/Epx/Library/Content:2,/Areas/Epx/Shared/Content:3&amp;amp;hashKey=CB15FF7470B76D293B5AA70BC247F439" /></head>
+    <body class="library">
+        <div id="page">
+            
+            
+  
+            
+
+<div id="ux-header">
+    <div class="GlobalBar">
+        <div class="PassportScarab">
+        
+        <a id="idPPScarab" class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1365086139&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms737526%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US"><span id="idPPScarabSIT">Sign in</span></a>
+        </div>
+    </div>
+    <div class="Clear"></div>
+    <div class="Search">
+        <div class="SearchBox">
+        <form id="HeaderSearchForm" method="get" action="http://social.msdn.microsoft.com/search/en-us/windows/desktop" onsubmit="return SearchBoxOnSubmit('Search Dev Center with Bing');">
+            <input name="query" id="HeaderSearchTextBox" class="TextBoxSearchLoaded" type="text" value="Search Dev Center with Bing" maxlength="100" title="Search Dev Center with Bing" onfocus="WatermarkFocus(this, 'Search Dev Center with Bing', 'TextBoxSearchLoaded TextBoxSearch')" onblur="WatermarkBlur(this, 'Search Dev Center with Bing', 'TextBoxSearchLoaded')" />
+            <input name="Refinement" type="hidden" value="181" />
+            <input id="HeaderSearchButton" value="" class="SearchButton" type="submit" title="Search Dev Center with Bing" />
+            <input id="HeaderSearchButtonHidden" value="" style="display:none;" type="submit" />       
+        </form>
+        </div>
+    </div>
+    <div class="siteLogo">
+        <a href="http://msdn.microsoft.com/en-us/windows/desktop" title="Dev Center - Desktop">
+          
+            <div class="sitelogoImage" alt="Dev Center - Desktop" title="Dev Center - Desktop"></div>
+            
+            <span>Dev Center - Desktop</span>
+        </a>
+    </div>
+    <div class="tabs">
+     
+         
+         <a class="" href="http://msdn.microsoft.com/windows/desktop/aa904944" title="Home">Home</a>
+
+         
+         
+         <a class="" href="https://sysdev.microsoft.com/en-US/desktop/" title="Dashboard">Dashboard</a>
+
+         
+         
+         <a class="highlightedTab" href="http://msdn.microsoft.com/library/windows/desktop/" title="Docs">Docs</a>
+
+         
+         
+         <a class="" href="http://code.msdn.microsoft.com/en-us/windowsdesktop" title="Samples">Samples</a>
+
+         
+         
+         <a class="" href="http://msdn.microsoft.com/windows/desktop/aa904949" title="Downloads">Downloads</a>
+
+         
+         
+         <a class="" href="http://msdn.microsoft.com/windows/desktop/aa905013" title="Support">Support</a>
+
+         
+         
+         <a class="" href="http://msdn.microsoft.com/windows/desktop/aa904945" title="Community">Community</a>
+
+             
+    </div>
+    <div class="masthead_hr"></div>
+</div>
+
+
+
+
+    <div class="breadCrumb">
+<a href="http://msdn.microsoft.com/en-us/windows/desktop/" title="Dev Center - Desktop">Dev Center - Desktop</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/" title="Docs">Docs</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh447209(v=vs.85).aspx" title="Desktop app development documentation">Desktop app development documentation</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee663286(v=vs.85).aspx" title="Networking">Networking</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740673(v=vs.85).aspx" title="Windows Sockets 2">Windows Sockets 2</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741416(v=vs.85).aspx" title="Winsock Reference">Winsock Reference</a>            <span>&gt;</span>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741394(v=vs.85).aspx" title="Winsock Functions">Winsock Functions</a>            <span>&gt;</span>
+
+        <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(v=vs.85).aspx" title="accept">accept</a>
+    </div>
+        <h1 id="TopicTitle">accept function</h1>
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+
+<div id="leftNav">
+
+
+
+<div id="tocnav">
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/aa904962.aspx" id="aa906041_MSDN.10_en-us" title="Windows Desktop App Development">Windows Desktop App Development</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/hh447209(v=vs.85).aspx" id="br230310_VS.85_en-us" title="Desktop app development documentation">Desktop app development documentation</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663286(v=vs.85).aspx" id="hh309599_VS.85_en-us" title="Networking">Networking</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms740673(v=vs.85).aspx" id="ms767900_VS.85_en-us" title="Windows Sockets 2">Windows Sockets 2</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms741416(v=vs.85).aspx" id="ms768062_VS.85_en-us" title="Winsock Reference">Winsock Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms741394(v=vs.85).aspx" id="ms768130_VS.85_en-us" title="Winsock Functions">Winsock Functions</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737526(v=vs.85).aspx" title="accept">accept</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737524(v=vs.85).aspx" title="AcceptEx">AcceptEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737550(v=vs.85).aspx" title="bind">bind</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737582(v=vs.85).aspx" title="closesocket">closesocket</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737625(v=vs.85).aspx" title="connect">connect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737606(v=vs.85).aspx" title="ConnectEx">ConnectEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737757(v=vs.85).aspx" title="DisconnectEx">DisconnectEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737823(v=vs.85).aspx" title="EnumProtocols">EnumProtocols</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737931(v=vs.85).aspx" title="freeaddrinfo">freeaddrinfo</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737912(v=vs.85).aspx" title="FreeAddrInfoW">FreeAddrInfoW</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms737906(v=vs.85).aspx" title="FreeAddrInfoEx">FreeAddrInfoEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738514(v=vs.85).aspx" title="gai_strerror">gai_strerror</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738516(v=vs.85).aspx" title="GetAcceptExSockaddrs">GetAcceptExSockaddrs</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738517(v=vs.85).aspx" title="GetAddressByName">GetAddressByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738520(v=vs.85).aspx" title="getaddrinfo">getaddrinfo</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738518(v=vs.85).aspx" title="GetAddrInfoEx">GetAddrInfoEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448782(v=vs.85).aspx" title="GetAddrInfoExCancel">GetAddrInfoExCancel</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448783(v=vs.85).aspx" title="GetAddrInfoExOverlappedResult">GetAddrInfoExOverlappedResult</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738519(v=vs.85).aspx" title="GetAddrInfoW">GetAddrInfoW</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738521(v=vs.85).aspx" title="gethostbyaddr">gethostbyaddr</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738524(v=vs.85).aspx" title="gethostbyname">gethostbyname</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738527(v=vs.85).aspx" title="gethostname">gethostname</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738530(v=vs.85).aspx" title="GetNameByType">GetNameByType</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738532(v=vs.85).aspx" title="getnameinfo">getnameinfo</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738531(v=vs.85).aspx" title="GetNameInfoW">GetNameInfoW</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738533(v=vs.85).aspx" title="getpeername">getpeername</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738534(v=vs.85).aspx" title="getprotobyname">getprotobyname</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738537(v=vs.85).aspx" title="getprotobynumber">getprotobynumber</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738538(v=vs.85).aspx" title="getservbyname">getservbyname</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738541(v=vs.85).aspx" title="getservbyport">getservbyport</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738542(v=vs.85).aspx" title="GetService">GetService</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738543(v=vs.85).aspx" title="getsockname">getsockname</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738544(v=vs.85).aspx" title="getsockopt">getsockopt</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738546(v=vs.85).aspx" title="GetTypeByName">GetTypeByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710197(v=vs.85).aspx" title="htond">htond</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710198(v=vs.85).aspx" title="htonf">htonf</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738556(v=vs.85).aspx" title="htonl">htonl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710199(v=vs.85).aspx" title="htonll">htonll</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738557(v=vs.85).aspx" title="htons">htons</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738563(v=vs.85).aspx" title="inet_addr">inet_addr</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738564(v=vs.85).aspx" title="inet_ntoa">inet_ntoa</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/cc805843(v=vs.85).aspx" title="InetNtop">InetNtop</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/cc805844(v=vs.85).aspx" title="InetPton">InetPton</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms738573(v=vs.85).aspx" title="ioctlsocket">ioctlsocket</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms739168(v=vs.85).aspx" title="listen">listen</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710200(v=vs.85).aspx" title="ntohd">ntohd</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710201(v=vs.85).aspx" title="ntohf">ntohf</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740069(v=vs.85).aspx" title="ntohl">ntohl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/jj710202(v=vs.85).aspx" title="ntohll">ntohll</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740075(v=vs.85).aspx" title="ntohs">ntohs</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740121(v=vs.85).aspx" title="recv">recv</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740120(v=vs.85).aspx" title="recvfrom">recvfrom</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448837(v=vs.85).aspx" title="RIOCloseCompletionQueue">RIOCloseCompletionQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448841(v=vs.85).aspx" title="RIOCreateCompletionQueue">RIOCreateCompletionQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448843(v=vs.85).aspx" title="RIOCreateRequestQueue">RIOCreateRequestQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448845(v=vs.85).aspx" title="RIODequeueCompletion">RIODequeueCompletion</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh448847(v=vs.85).aspx" title="RIODeregisterBuffer">RIODeregisterBuffer</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437191(v=vs.85).aspx" title="RIONotify">RIONotify</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437193(v=vs.85).aspx" title="RIOReceive">RIOReceive</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437196(v=vs.85).aspx" title="RIOReceiveEx">RIOReceiveEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437199(v=vs.85).aspx" title="RIORegisterBuffer">RIORegisterBuffer</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437202(v=vs.85).aspx" title="RIOResizeCompletionQueue">RIOResizeCompletionQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437204(v=vs.85).aspx" title="RIOResizeRequestQueue">RIOResizeRequestQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437213(v=vs.85).aspx" title="RIOSend">RIOSend</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh437216(v=vs.85).aspx" title="RIOSendEx">RIOSendEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740141(v=vs.85).aspx" title="select">select</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740149(v=vs.85).aspx" title="send">send</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740148(v=vs.85).aspx" title="sendto">sendto</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740473(v=vs.85).aspx" title="SetAddrInfoEx">SetAddrInfoEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740475(v=vs.85).aspx" title="SetService">SetService</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/hh994468(v=vs.85).aspx" title="SetSocketMediaStreamingMode">SetSocketMediaStreamingMode</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740476(v=vs.85).aspx" title="setsockopt">setsockopt</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740481(v=vs.85).aspx" title="shutdown">shutdown</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740506(v=vs.85).aspx" title="socket">socket</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740565(v=vs.85).aspx" title="TransmitFile">TransmitFile</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms740566(v=vs.85).aspx" title="TransmitPackets">TransmitPackets</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741513(v=vs.85).aspx" title="WSAAccept">WSAAccept</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741516(v=vs.85).aspx" title="WSAAddressToString">WSAAddressToString</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741519(v=vs.85).aspx" title="WSAAsyncGetHostByAddr">WSAAsyncGetHostByAddr</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741522(v=vs.85).aspx" title="WSAAsyncGetHostByName">WSAAsyncGetHostByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741526(v=vs.85).aspx" title="WSAAsyncGetProtoByName">WSAAsyncGetProtoByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741529(v=vs.85).aspx" title="WSAAsyncGetProtoByNumber">WSAAsyncGetProtoByNumber</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741533(v=vs.85).aspx" title="WSAAsyncGetServByName">WSAAsyncGetServByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741536(v=vs.85).aspx" title="WSAAsyncGetServByPort">WSAAsyncGetServByPort</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741540(v=vs.85).aspx" title="WSAAsyncSelect">WSAAsyncSelect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741544(v=vs.85).aspx" title="WSACancelAsyncRequest">WSACancelAsyncRequest</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741547(v=vs.85).aspx" title="WSACancelBlockingCall">WSACancelBlockingCall</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741549(v=vs.85).aspx" title="WSACleanup">WSACleanup</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741551(v=vs.85).aspx" title="WSACloseEvent">WSACloseEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741559(v=vs.85).aspx" title="WSAConnect">WSAConnect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741554(v=vs.85).aspx" title="WSAConnectByList">WSAConnectByList</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741557(v=vs.85).aspx" title="WSAConnectByName">WSAConnectByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741561(v=vs.85).aspx" title="WSACreateEvent">WSACreateEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394816(v=vs.85).aspx" title="WSADeleteSocketPeerTargetName">WSADeleteSocketPeerTargetName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741565(v=vs.85).aspx" title="WSADuplicateSocket">WSADuplicateSocket</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741570(v=vs.85).aspx" title="WSAEnumNameSpaceProviders">WSAEnumNameSpaceProviders</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741568(v=vs.85).aspx" title="WSAEnumNameSpaceProvidersEx">WSAEnumNameSpaceProvidersEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741572(v=vs.85).aspx" title="WSAEnumNetworkEvents">WSAEnumNetworkEvents</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741574(v=vs.85).aspx" title="WSAEnumProtocols">WSAEnumProtocols</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741576(v=vs.85).aspx" title="WSAEventSelect">WSAEventSelect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741578(v=vs.85).aspx" title="__WSAFDIsSet">__WSAFDIsSet</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741580(v=vs.85).aspx" title="WSAGetLastError">WSAGetLastError</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741582(v=vs.85).aspx" title="WSAGetOverlappedResult">WSAGetOverlappedResult</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741587(v=vs.85).aspx" title="WSAGetQOSByName">WSAGetQOSByName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741592(v=vs.85).aspx" title="WSAGetServiceClassInfo">WSAGetServiceClassInfo</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741598(v=vs.85).aspx" title="WSAGetServiceClassNameByClassId">WSAGetServiceClassNameByClassId</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741604(v=vs.85).aspx" title="WSAHtonl">WSAHtonl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741609(v=vs.85).aspx" title="WSAHtons">WSAHtons</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394817(v=vs.85).aspx" title="WSAImpersonateSocketPeer">WSAImpersonateSocketPeer</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741616(v=vs.85).aspx" title="WSAInstallServiceClass">WSAInstallServiceClass</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741621(v=vs.85).aspx" title="WSAIoctl">WSAIoctl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741625(v=vs.85).aspx" title="WSAIsBlocking">WSAIsBlocking</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741628(v=vs.85).aspx" title="WSAJoinLeaf">WSAJoinLeaf</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741633(v=vs.85).aspx" title="WSALookupServiceBegin">WSALookupServiceBegin</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741637(v=vs.85).aspx" title="WSALookupServiceEnd">WSALookupServiceEnd</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741641(v=vs.85).aspx" title="WSALookupServiceNext">WSALookupServiceNext</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741658(v=vs.85).aspx" title="WSANSPIoctl">WSANSPIoctl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741660(v=vs.85).aspx" title="WSANtohl">WSANtohl</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741663(v=vs.85).aspx" title="WSANtohs">WSANtohs</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741669(v=vs.85).aspx" title="WSAPoll">WSAPoll</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394820(v=vs.85).aspx" title="WSAQuerySocketSecurity">WSAQuerySocketSecurity</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741677(v=vs.85).aspx" title="WSAProviderConfigChange">WSAProviderConfigChange</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741688(v=vs.85).aspx" title="WSARecv">WSARecv</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741682(v=vs.85).aspx" title="WSARecvDisconnect">WSARecvDisconnect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741684(v=vs.85).aspx" title="WSARecvEx">WSARecvEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741686(v=vs.85).aspx" title="WSARecvFrom">WSARecvFrom</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741687(v=vs.85).aspx" title="WSARecvMsg">WSARecvMsg</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741689(v=vs.85).aspx" title="WSARemoveServiceClass">WSARemoveServiceClass</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741690(v=vs.85).aspx" title="WSAResetEvent">WSAResetEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394821(v=vs.85).aspx" title="WSARevertImpersonation">WSARevertImpersonation</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742203(v=vs.85).aspx" title="WSASend">WSASend</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741691(v=vs.85).aspx" title="WSASendDisconnect">WSASendDisconnect</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741692(v=vs.85).aspx" title="WSASendMsg">WSASendMsg</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms741693(v=vs.85).aspx" title="WSASendTo">WSASendTo</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742205(v=vs.85).aspx" title="WSASetBlockingHook">WSASetBlockingHook</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742208(v=vs.85).aspx" title="WSASetEvent">WSASetEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742209(v=vs.85).aspx" title="WSASetLastError">WSASetLastError</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742211(v=vs.85).aspx" title="WSASetService">WSASetService</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394822(v=vs.85).aspx" title="WSASetSocketPeerTargetName">WSASetSocketPeerTargetName</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/bb394823(v=vs.85).aspx" title="WSASetSocketSecurity">WSASetSocketSecurity</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742212(v=vs.85).aspx" title="WSASocket">WSASocket</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742213(v=vs.85).aspx" title="WSAStartup">WSAStartup</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742214(v=vs.85).aspx" title="WSAStringToAddress">WSAStringToAddress</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742217(v=vs.85).aspx" title="WSAUnhookBlockingHook">WSAUnhookBlockingHook</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms742219(v=vs.85).aspx" title="WSAWaitForMultipleEvents">WSAWaitForMultipleEvents</a>            </div>
+</div>    
+    
+    
+    
+    
+    
+    
+    
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+</div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    <div id="ratingCounterSeperator" class="cl_lw_vs_seperator" style="display: none;"></div>
+
+    <div id="ratingCounter">
+        <span id="rcA" class="ratingText">
+            33 out of 44 rated this helpful <span id="rateThisPrefix">- </span><a id="rateThisTopic" href="#feedback" title="Rate this topic">Rate this topic</a>
+            
+        </span>
+    </div>
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+			The 
+<strong>accept</strong> function permits an incoming connection attempt on a socket.</p>
+<h3>Syntax</h3>
+
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabSingle" dir="ltr"><a>C++</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_5111dd90-1f94-49e8-9b39-acaa37f30854');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_5111dd90-1f94-49e8-9b39-acaa37f30854" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+
+SOCKET accept(
+  _In_     SOCKET s,
+  _Out_    <span style="color:Blue;">struct</span> sockaddr *addr,
+  _Inout_  <span style="color:Blue;">int</span> *addrlen
+);
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<h3>Parameters</h3>
+<dl>
+<dt><em>s</em> [in]</dt>
+<dd>
+<p>A descriptor that identifies a socket that has been placed in a listening state with the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms739168(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">listen</strong></a> function. The connection is actually made with the socket that is returned by 
+<strong>accept</strong>.</p>
+</dd>
+<dt><em>addr</em> [out]</dt>
+<dd>
+<p>An optional pointer to a buffer that receives the address of the connecting entity, as known to the communications layer. The exact format of the <em>addr</em> parameter is determined by the address family that was established when the socket from the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740496(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">sockaddr</strong></a> structure was created.</p>
+</dd>
+<dt><em>addrlen</em> [in, out]</dt>
+<dd>
+<p>An optional pointer to an integer that contains the length of structure pointed to by the <em>addr</em> parameter.</p>
+</dd>
+</dl>
+<h3>Return value</h3>
+<p>If no error occurs, 
+<strong>accept</strong> returns a value of type <strong>SOCKET</strong> that is a descriptor for the new socket. This returned value is a handle for the socket on which the actual connection is made.</p>
+<p>Otherwise, a value of <strong>INVALID_SOCKET</strong> is returned, and a specific error code can be retrieved by calling 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741580(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAGetLastError</strong></a>.</p>
+<p>The integer referred to by <em>addrlen</em> initially contains the amount of space pointed to by <em>addr</em>. On return it will contain the actual length in bytes of the address returned.</p>
+<table>
+<tr><th>Error code</th><th>Meaning</th></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSANOTINITIALISED">WSANOTINITIALISED</a></strong></dt>
+</dl>
+</td><td>
+<p>A successful 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms742213(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAStartup</strong></a> call must occur before using this function.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAECONNRESET">WSAECONNRESET</a></strong></dt>
+</dl>
+</td><td>
+<p>An incoming connection was indicated, but was subsequently terminated by the remote peer prior to accepting the call.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEFAULT">WSAEFAULT</a></strong></dt>
+</dl>
+</td><td>
+<p>The <em>addrlen</em> parameter is too small or <em>addr</em> is not a valid part of the user address space.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEINTR">WSAEINTR</a></strong></dt>
+</dl>
+</td><td>
+<p>A blocking Windows Sockets 1.1 call was canceled through 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741547(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSACancelBlockingCall</strong></a>.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEINVAL">WSAEINVAL</a></strong></dt>
+</dl>
+</td><td>
+<p>The 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms739168(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">listen</strong></a> function was not invoked prior to 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">accept</strong></a>.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEINPROGRESS">WSAEINPROGRESS</a></strong></dt>
+</dl>
+</td><td>
+<p>A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEMFILE">WSAEMFILE</a></strong></dt>
+</dl>
+</td><td>
+<p>The queue is nonempty upon entry to 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">accept</strong></a> and there are no descriptors available.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAENETDOWN">WSAENETDOWN</a></strong></dt>
+</dl>
+</td><td>
+<p>The network subsystem has failed.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAENOBUFS">WSAENOBUFS</a></strong></dt>
+</dl>
+</td><td>
+<p>No buffer space is available.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAENOTSOCK">WSAENOTSOCK</a></strong></dt>
+</dl>
+</td><td>
+<p>The descriptor is not a socket.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEOPNOTSUPP">WSAEOPNOTSUPP</a></strong></dt>
+</dl>
+</td><td>
+<p>The referenced socket is not a type that supports connection-oriented service.</p>
+</td></tr>
+<tr><td>
+<dl>
+<dt><strong><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740668(v=vs.85).aspx#WSAEWOULDBLOCK">WSAEWOULDBLOCK</a></strong></dt>
+</dl>
+</td><td>
+<p>The socket is marked as nonblocking and no connections are present to be accepted.</p>
+</td></tr>
+</table>
+<p> </p>
+<h3>Remarks</h3>
+<p>The 
+<strong>accept</strong> function extracts the first connection on the queue of pending connections on socket <em>s</em>. It then creates and returns a handle to the new socket. The newly created socket is the socket that will handle the actual connection; it has the same properties as socket <em>s</em>, including the asynchronous events registered with the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741540(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAAsyncSelect</strong></a> or 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741576(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAEventSelect</strong></a> functions.</p>
+<p>The 
+<strong>accept</strong> function can block the caller until a connection is present if no pending connections are present on the queue, and the socket is marked as blocking. If the socket is marked as nonblocking and no pending connections are present on the queue, 
+<strong>accept</strong> returns an error as described in the following. After the successful completion of 
+<strong>accept</strong> returns a new socket handle, the accepted socket cannot be used to accept more connections. The original socket remains open and listens for new connection requests.</p>
+<p>The parameter <em>addr</em> is a result parameter that is filled in with the address of the connecting entity, as known to the communications layer. The exact format of the <em>addr</em> parameter is determined by the address family in which the communication is occurring. The <em>addrlen</em> is a value-result parameter; it should initially contain the amount of space pointed to by <em>addr</em>; on return it will contain the actual length (in bytes) of the address returned.</p>
+<p>The 
+<strong>accept</strong> function is used with connection-oriented socket types such as SOCK_STREAM. If <em>addr</em> and/or <em>addrlen</em> are equal to <strong>NULL</strong>, then no information about the remote address of the accepted socket is returned.</p>
+<p class="note"><strong>Note</strong>  When issuing a blocking Winsock call such as <strong>accept</strong>, Winsock may need to wait for a network event before the call can complete. Winsock performs an alertable wait in this situation, which can be interrupted by an asynchronous procedure call (APC) scheduled on the same thread. Issuing another blocking Winsock call inside an APC that interrupted an ongoing blocking Winsock call on the same thread will lead to undefined behavior, and must never be attempted by Winsock clients. </p>
+<h4><a id="Example_Code"></a><a id="example_code"></a><a id="EXAMPLE_CODE"></a>Example Code</h4>
+<p>The following example demonstrates the use of the <strong>accept</strong> function.</p>
+
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabSingle" dir="ltr"><a>C++</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_6ea7d694-acf8-420d-87e9-d0e4c93c14b1');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_6ea7d694-acf8-420d-87e9-d0e4c93c14b1" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+
+<span style="color:Blue;">#if</span>ndef UNICODE
+<span style="color:Blue;">#define</span> UNICODE
+<span style="color:Blue;">#endif</span>
+
+#include &lt;winsock2.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+
+<span style="color:Green;">// Need to link with Ws2_32.lib</span>
+<span style="color:Blue;">#pragma</span> comment(lib, "Ws2_32.lib")
+
+<span style="color:Blue;">int</span> wmain(<span style="color:Blue;">void</span>)
+{
+
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// Initialize Winsock.</span>
+    WSADATA wsaData;
+    <span style="color:Blue;">int</span> iResult = WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
+    <span style="color:Blue;">if</span> (iResult != NO_ERROR) {
+        wprintf(L<span style="color:#A31515;">"WSAStartup failed with error: %ld\n"</span>, iResult);
+        <span style="color:Blue;">return</span> 1;
+    }
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// Create a SOCKET for listening for</span>
+    <span style="color:Green;">// incoming connection requests.</span>
+    SOCKET ListenSocket;
+    ListenSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    <span style="color:Blue;">if</span> (ListenSocket == INVALID_SOCKET) {
+        wprintf(L<span style="color:#A31515;">"socket failed with error: %ld\n"</span>, WSAGetLastError());
+        WSACleanup();
+        <span style="color:Blue;">return</span> 1;
+    }
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// The sockaddr_in structure specifies the address family,</span>
+    <span style="color:Green;">// IP address, and port for the socket that is being bound.</span>
+    sockaddr_in service;
+    service.sin_family = AF_INET;
+    service.sin_addr.s_addr = inet_addr(<span style="color:#A31515;">"127.0.0.1"</span>);
+    service.sin_port = htons(27015);
+
+    <span style="color:Blue;">if</span> (bind(ListenSocket,
+             (SOCKADDR *) &amp; service, <span style="color:Blue;">sizeof</span> (service)) == SOCKET_ERROR) {
+        wprintf(L<span style="color:#A31515;">"bind failed with error: %ld\n"</span>, WSAGetLastError());
+        closesocket(ListenSocket);
+        WSACleanup();
+        <span style="color:Blue;">return</span> 1;
+    }
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// Listen for incoming connection requests.</span>
+    <span style="color:Green;">// on the created socket</span>
+    <span style="color:Blue;">if</span> (listen(ListenSocket, 1) == SOCKET_ERROR) {
+        wprintf(L<span style="color:#A31515;">"listen failed with error: %ld\n"</span>, WSAGetLastError());
+        closesocket(ListenSocket);
+        WSACleanup();
+        <span style="color:Blue;">return</span> 1;
+    }
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// Create a SOCKET for accepting incoming requests.</span>
+    SOCKET AcceptSocket;
+    wprintf(L<span style="color:#A31515;">"Waiting for client to connect...\n"</span>);
+
+    <span style="color:Green;">//----------------------</span>
+    <span style="color:Green;">// Accept the connection.</span>
+    AcceptSocket = accept(ListenSocket, NULL, NULL);
+    <span style="color:Blue;">if</span> (AcceptSocket == INVALID_SOCKET) {
+        wprintf(L<span style="color:#A31515;">"accept failed with error: %ld\n"</span>, WSAGetLastError());
+        closesocket(ListenSocket);
+        WSACleanup();
+        <span style="color:Blue;">return</span> 1;
+    } <span style="color:Blue;">else</span>
+        wprintf(L<span style="color:#A31515;">"Client connected.\n"</span>);
+
+    <span style="color:Green;">// No longer need server socket</span>
+    closesocket(ListenSocket);
+
+    WSACleanup();
+    <span style="color:Blue;">return</span> 0;
+}
+
+
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<p>For another example that uses the  <strong>accept</strong> function, see <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms738545(v=vs.85).aspx">Getting Started With Winsock</a>.</p>
+<h4><a id="Notes_for_ATM"></a><a id="notes_for_atm"></a><a id="NOTES_FOR_ATM"></a>Notes for ATM</h4>
+<p>
+</p><p>The following are important issues associated with connection setup, and must be considered when using Asynchronous Transfer Mode (ATM) with Windows Sockets 2:</p>
+<ul>
+<li>The 
+<strong>accept</strong> and 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741513(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAAccept</strong></a> functions do not necessarily set the remote address and address length parameters. Therefore, when using ATM, the caller should use the 
+<strong>WSAAccept</strong> function and place ATM_CALLING_PARTY_NUMBER_IE in the 
+<strong>ProviderSpecific</strong> member of the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa374024(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">QoS</strong></a> structure, which itself is included in the <em>lpSQOS</em> parameter of the callback function used in accordance with 
+<strong>WSAAccept</strong>.</li>
+<li>When using the 
+<strong>accept</strong> function, realize that the function may return before connection establishment has traversed the entire distance between sender and receiver. This is because the 
+<strong>accept</strong> function returns as soon as it receives a CONNECT ACK message; in ATM, a CONNECT ACK message is returned by the next switch in the path as soon as a CONNECT message is processed (rather than the CONNECT ACK being sent by the end node to which the connection is ultimately established). As such, applications should realize that if data is sent immediately following receipt of a CONNECT ACK message, data loss is possible, since the connection may not have been established all the way between sender and receiver.</li>
+</ul>
+
+<p><strong>Windows Phone 8:</strong> This API is supported.</p>
+<h3>Requirements</h3>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>Windows 2000 Professional [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows 2000 Server [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>Winsock2.h</dt>
+</dl>
+</td></tr>
+<tr><th>
+<p>Library</p>
+</th><td>
+<dl>
+<dt>Ws2_32.lib</dt>
+</dl>
+</td></tr>
+<tr><th>
+<p>DLL</p>
+</th><td>
+<dl>
+<dt>Ws2_32.dll</dt>
+</dl>
+</td></tr>
+</table>
+<h3><a id="see_also"></a>See also</h3>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741416(v=vs.85).aspx">Winsock Reference</a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741394(v=vs.85).aspx">Winsock Functions</a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737550(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">bind</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737625(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">connect</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms739168(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">listen</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740141(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">select</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740496(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">sockaddr</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740506(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">socket</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741540(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAAsyncSelect</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms741513(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">WSAAccept</strong></a>
+</dt>
+</dl>
+<p> </p>
+<p> </p>
+<p><a href="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback [winsock\winsock]:%20accept function%20 RELEASE:%20(11/29/2012)&amp;body=%0A%0APRIVACY STATEMENT%0A%0AThe doc team uses your feedback to improve the documentation. We don't use your email address for any other purpose. We'll remove your email address from our system after the issue that you are reporting is resolved. While we are working to resolve this issue, we may send you an email message to request more info about your feedback. After the issue is addressed, we may send you an email message to let you know that your feedback has been addressed.%0A%0AFor more info about Microsoft's privacy policy, see http://privacy.microsoft.com/en-us/default.aspx." title="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft</a></p>
+<p>Build date: 11/29/2012</p>
+</div>
+</div>
+
+
+
+
+
+<div id="contentFeedback">
+    <form method="post" action="/en-us/library/windows/desktop/feedback/add/ms737526(v=vs.85).aspx">
+        <input name="__RequestVerificationToken" type="hidden" value="2XNuieCqznC9JUUa6XRdQo-aVNa7iSZKsmmcmUCNAnebiTuwl440jxV2wmLo2Z5weqgAn_BqIuyrSu5WkUwOLNWncdJxgQhSiwVIZiLKm5hAhBC0dlQrnS3Z1ymr6LxXKTvcsA2" />
+    <div id="contentFeedbackContainer">
+        <div class="FeedbackTitleContainer">
+            <a name="feedback"></a>
+        Did you find this helpful?
+            <input id="rdIsUsefulYes" name="rdIsUseful" type="radio" value="1" onclick="toggleContentFeedback('Yes');" /><label for="rdIsUsefulYes">Yes</label>
+            <input id="rdIsUsefulNo" name="rdIsUseful" type="radio" value="0" onclick="toggleContentFeedback('No');" /><label for="rdIsUsefulNo">No</label>
+        
+        </div>
+        
+            <div id="contentFeedbackQAContainer">
+                
+                    <div id="feedbackListNoContainer" class="FeedbackListContainer">
+                        
+                            <div>
+                                <input id="chkbxNo201" name="chkbxNo" type="checkbox" value="201" />
+                                <label for="chkbxNo201">Not accurate</label>
+                            </div>
+                        
+                            <div>
+                                <input id="chkbxNo202" name="chkbxNo" type="checkbox" value="202" />
+                                <label for="chkbxNo202">Not enough depth</label>
+                            </div>
+                        
+                            <div>
+                                <input id="chkbxNo203" name="chkbxNo" type="checkbox" value="203" />
+                                <label for="chkbxNo203">Need more code examples</label>
+                            </div>
+                        
+                    </div>
+                
+                <div class="FeedbackTellUsMoreContainer">
+                    <textarea id="feedbackText" name="feedbackText" class="TellUsMoreTextBoxSearchLoaded" onfocus="WatermarkFocus(this, 'Tell us more...', 'TellUsMoreTextBoxSearch')" onblur="WatermarkBlur(this, 'Tell us more...', 'TellUsMoreTextBoxSearchLoaded')" onmouseover="TextBoxCharactersCounter(this, document.getElementById('feedbackTextCounter'), 1500)" onkeydown="TextBoxCharactersCounter(this, document.getElementById('feedbackTextCounter'), 1500)" onkeyup="TextBoxCharactersCounter(this, document.getElementById('feedbackTextCounter'), 1500)">Tell us more...</textarea>
+                </div>
+                <span class="counter">(<span id="feedbackTextCounter">1500</span> characters remaining)</span>
+                <input type="hidden" id="returnUrl" name="returnUrl" value="http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526(v=vs.85).aspx" />
+                <input type="submit" id="submit" value="Submit" title="Click to Submit Feedback" onclick="WatermarkOnSubmit(document.getElementById('feedbackText'), 'Tell us more...', 'TellUsMoreTextBoxSearch')" />
+                <div style="clear: both;"></div>
+            </div>  
+        
+    </div>
+    </form>
+</div>
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms737526(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms737526(v=vs.85).aspx"></div>
+</div>
+
+
+
+</div>
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+
+<div id="ux-footer">
+
+    <div class="blocks">
+        <div class="footerPrimaryBlock">
+            <div class="footerLinksTitles">Network sites</div>
+            <div style="padding-top: 5px; padding-bottom: 14px;">
+              <a href="http://msdn.microsoft.com" title="Microsoft Developer Network">
+                <div class="clip49x17">
+                  <img alt="Network sites" title="Microsoft Developer Network" class="footerLogoImage" src="http://i3.msdn.microsoft.com/Areas/Epx/Themes/Metro/Content/ImageSprite.png" />
+                </div>
+              </a>
+            </div>
+            <div style="padding-bottom: 71px;"><span class="footerLinks"></span></div>
+        </div>
+        <div class="footerSubBlock"> </div><div class="footerSubBlock">
+          <div class="footerLinksTitles">Windows Dev Center</div>
+          
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/windows" title="Windows Dev Center home">Windows Dev Center home</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/windows/apps" title="Windows Store apps">Windows Store apps</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/ie" title="Internet Explorer">Internet Explorer</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/windows/desktop" title="Desktop">Desktop</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/windows/hardware" title="Hardware">Hardware</a>
+                    </div>
+                    
+        </div><div class="footerFinalBlock">
+          <div class="footerLinksTitles">Other links</div>
+          
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://msdn.microsoft.com/windows/desktop/aa905013" title="Support">Support</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="https://connect.microsoft.com/dashboard/" title="Microsoft Connect">Microsoft Connect</a>
+                    </div>
+                    
+                    <div style="padding-top: 5px;" class="footerLinks">
+                      <a href="http://dev.windowsphone.com/" title="Windows Phone Dev Center">Windows Phone Dev Center</a>
+                    </div>
+                    
+        </div>
+        </div>
+    
+    <div class="footerMSLogo">
+      <a href="http://www.microsoft.com" title="Microsoft">
+        <div class="clip104x20">
+          <img src="http://i3.msdn.microsoft.com/Areas/Epx/Themes/Metro/Content/ImageSprite.png" class="footerMsLogo" title="Microsoft" alt="" />
+        </div>
+      </a>
+    </div>
+    <div class="footerSubLinksContainer">
+        <div class="footerSubLinks">
+            <a href="http://msdn.microsoft.com/windows/desktop/cc300389" title="Terms of use">Terms of use</a>
+              <span class="footerSubLinksDivider">|</span>
+            <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" title="Trademarks">Trademarks</a>
+              <span class="footerSubLinksDivider">|</span>
+            <a href="http://www.microsoft.com/info/privacy.mspx" title="Privacy statement">Privacy statement</a>
+              <span class="footerSubLinksDivider">|</span>
+            
+          <a href="http://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=%2flibrary%2fwindows%2fdesktop%2fms737526" title="Site feedback" target="_blank" onclick="SiteFeedbackNewWindow('http://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=%2flibrary%2fwindows%2fdesktop%2fms737526'); return false;">Site feedback</a>
+          <span class="footerSubLinksDivider">|</span>
+          <a href="http://msdn.microsoft.com/en-us/windows/desktop/SelectLocale?fromPage=%2flibrary%2fwindows%2fdesktop%2fms737526" title=" United States (English)"> United States (English)</a>
+        </div>
+        <div class="footerCopyright" title="© 2013 Microsoft. All rights reserved.">© 2013 Microsoft. All rights reserved.</div>
+    </div>
+</div>
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2013 Microsoft. All rights reserved.</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="sb4lfgiC6TbGT30M1vKKmMoPpqC3Xt3ESK8WFFu4c4meoa7xkjOapdNUFwVs99yk5kUmylaa2oS7v4u3yDXdc_3kAaa6WGksETKAoNXfvw4QA0_zJPVm-STRnwHg5Epul9zc4g2" />
+</div>
+
+
+        </div>
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index],elem=document.createElement("script"),elem.className="mtps-injected",elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext,script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }"),parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms737526(d=default,l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdn_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"1679854e-8842-4fe0-8665-697f9a7761d8\";\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,0:Topic,1:webtrendsscript,2:omni_rsid_MSDN,3:header,4:Toc,4:NavigationResize,5:FeedbackCounter,5:Feedback;/Areas/Epx/Content/Scripts:0,/Areas/Global/Content/Webtrends/resources:1,/Areas/Global/Content/Omniture/resources/MSDN:2,/Areas/Epx/Themes/Metro/Content:3,/Areas/Epx/Library/Content:4,/Areas/Epx/Shared/Content:5\u0026amp;hashKey=0B2E2F1F483C378035233DC36E7C0BFE" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:CodeSnippet,0:TopicNotInScope,0:CollapsibleArea,0:VersionSelector,0:SurveyBroker;/Areas/Epx/Content/Scripts:0\u0026amp;hashKey=D5915FD6DBFF21C05D210DF8C1949BFA" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>
